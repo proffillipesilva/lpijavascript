@@ -5,4 +5,4 @@ const DB = [
     { email: "mariana@mail.com", password: "admin123@#"}
 ]
 
-module.exports =  DB 
+export default DB;
