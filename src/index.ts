@@ -2,6 +2,7 @@ import express, {Express, Request, Response} from 'express';
 import { login } from './user';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
+import DB from './db';
 
 const app: Express = express();
 app.use(bodyParser.json()); // processa os parametros no corpo da msg
@@ -14,6 +15,14 @@ app.get("/", (req: Request, res: Response) => {
 
 })
 
+app.get("/listaDeUsuarios", (req: Request, res: Response) => {
+    res.json(DB.usuarios);
+})
+
+app.get("/listaDeProdutos", (req: Request, res: Response) => {
+    res.json(DB.produtos);
+})
+
 app.post("/login", (req: Request, res: Response) => {
     const usuario = req.body;
     const status = login(usuario.email, usuario.password);
@@ -22,11 +31,3 @@ app.post("/login", (req: Request, res: Response) => {
 
 app.listen(38000, () => console.log("iniciando"))
 
-// callback
-// funcao que é chamada quando um evento acontece
-
-// git reset --hard
-// git checkout main
-// git pull origin main
-
-// http://10.5.9.21:38000
