@@ -1,5 +1,6 @@
-import DB from "./db";
-import { validateEmail, validatePassword } from "./validations";
+
+import DB from "../db";
+import { validateEmail, validatePassword } from "../validations";
 
 function login(email: string, password: string) : number {
     if( validateEmail(email) && validatePassword(password) ){
