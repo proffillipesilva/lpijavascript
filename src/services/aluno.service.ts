@@ -1,26 +1,24 @@
 import Aluno from "../models/Aluno";
-import DBMock from "../models/DBMock";
+import AlunoDAO from "../models/AlunoDAO";
 
 function registraAluno(aluno: Aluno){ // CRIA
-    DBMock.tb_alunos.push(aluno);
+    new AlunoDAO().registraAluno(aluno);
 }
 
 function editaInfoAluno(alunoEditado: Aluno, index: number){
-    DBMock.tb_alunos.splice(index, 1, alunoEditado); // UPDATE
+    new AlunoDAO().editaInfoAluno(alunoEditado,index);// UPDATE
 }
 
 function consultaAlunos() : Aluno[] { // READ
-    return DBMock.tb_alunos;
+    return new AlunoDAO().consultaAlunos();
 }
 
 function consultaAlunoEspecifico(idx: number) : Aluno | null { // READ
-    if(idx >= 0 && idx < DBMock.tb_alunos.length)
-        return DBMock.tb_alunos[idx];
-    return null;
+    return new AlunoDAO().consultaAlunoEspecifico(idx);
 }
 
 function deletaAluno(idx: number) : void {  // DELETE
-    DBMock.tb_alunos.splice(idx, 1);
+    new AlunoDAO().deletaAluno(idx);
 }
 
 export default { registraAluno, 
