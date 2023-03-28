@@ -1,8 +1,13 @@
 import Aluno from "./Aluno";
+import Professor from "./Professor";
 
 
 const tb_alunos : Aluno[] = [
 
 ];
 
-export default { tb_alunos };
+const tb_professores : Professor[] = [
+
+];
+
+export default { tb_alunos, tb_professores };
