@@ -13,4 +13,12 @@ function consultaAlunos() : Aluno[] {
     return DBMock.tb_alunos;
 }
 
-export default { registraAluno, editaInfoAluno, consultaAlunos};
+function deletaAluno(idx: number) {
+
+}
+
+export default { registraAluno, 
+    editaInfoAluno, 
+    consultaAlunos, 
+    deletaAluno
+};

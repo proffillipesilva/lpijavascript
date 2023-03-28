@@ -44,3 +44,15 @@ test('consulta aluno', ()=>{
     expect (alunos.length).toBe(3);
     expect(alunos[1]).toBe(aluno);
 })
+
+test("deletaAluno(idx) ", () => {
+    const aluno = {
+        rm: 3, nome: "Joao", curso: "TI"
+    } as Aluno;
+
+    DBMock.tb_alunos.splice(0,100);//zerar a tabela
+    DBMock.tb_alunos.push(aluno, aluno, aluno);
+    alunoService.deletaAluno(1);
+    expect (DBMock.tb_alunos.length).toBe(2);
+
+})
