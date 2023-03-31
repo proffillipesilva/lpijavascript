@@ -21,7 +21,15 @@ function deletaAluno(idx: number) : void {  // DELETE
     new AlunoRepositorio().deletaAluno(idx);
 }
 
-function filtraPorRM(rm: number) : Aluno {
+function filtraPorRM(rm: number) : Aluno | null {
+    const alunos = new AlunoRepositorio().consultaAlunos();
+    for (let index = 0; index < alunos.length; index++) {
+        const aluno = alunos[index];
+        if(aluno .rm == rm){
+            return aluno
+        }
+    }
+    
     return null;
 }
 

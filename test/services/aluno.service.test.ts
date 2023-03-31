@@ -66,13 +66,13 @@ test("filtraAlunoPorRM(rm) ", () => {
     DBMock.tb_alunos.push(aluno1, aluno2, aluno3);
     let alunoSelecionadoPorRM = alunoService.filtraPorRM(3);
     
-    expect(alunoSelecionadoPorRM.nome).toBe("Joao");
+    expect(alunoSelecionadoPorRM?.nome).toBe("Joao");
     alunoSelecionadoPorRM = alunoService.filtraPorRM(5);
     
-    expect(alunoSelecionadoPorRM.nome).toBe("Maria");
+    expect(alunoSelecionadoPorRM?.nome).toBe("Maria");
     alunoSelecionadoPorRM = alunoService.filtraPorRM(7);
     
-    expect(alunoSelecionadoPorRM.nome).toBe("Rita");
+    expect(alunoSelecionadoPorRM?.nome).toBe("Rita");
     
     
 
