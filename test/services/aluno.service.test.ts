@@ -56,3 +56,24 @@ test("deletaAluno(idx) ", () => {
     expect (DBMock.tb_alunos.length).toBe(2);
 
 })
+
+test("filtraAlunoPorRM(rm) ", () => {
+    const aluno1 = { rm: 3, nome: "Joao", curso: "TI"} as Aluno;
+    const aluno2 = { rm: 5, nome: "Maria", curso: "TI"} as Aluno;
+    const aluno3 = { rm: 7, nome: "Rita", curso: "TI"} as Aluno;
+
+    DBMock.tb_alunos.splice(0,100);//zerar a tabela
+    DBMock.tb_alunos.push(aluno1, aluno2, aluno3);
+    let alunoSelecionadoPorRM = alunoService.filtraPorRM(3);
+    
+    expect(alunoSelecionadoPorRM.nome).toBe("Joao");
+    alunoSelecionadoPorRM = alunoService.filtraPorRM(5);
+    
+    expect(alunoSelecionadoPorRM.nome).toBe("Maria");
+    alunoSelecionadoPorRM = alunoService.filtraPorRM(7);
+    
+    expect(alunoSelecionadoPorRM.nome).toBe("Rita");
+    
+    
+
+})

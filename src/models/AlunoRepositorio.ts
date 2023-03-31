@@ -1,7 +1,7 @@
 import Aluno from "./Aluno";
 import DBMock from "./DBMock";
 
-class AlunoDAO {
+class AlunoRepositorio {
     registraAluno(aluno: Aluno){ // CRIA
         DBMock.tb_alunos.push(aluno);
     }
@@ -25,4 +25,4 @@ class AlunoDAO {
     }
 }
 
-export default AlunoDAO;
+export default AlunoRepositorio;

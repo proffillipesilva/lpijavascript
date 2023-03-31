@@ -1,29 +1,34 @@
 import Aluno from "../models/Aluno";
-import AlunoDAO from "../models/AlunoDAO";
+import AlunoRepositorio from "../models/AlunoRepositorio";
 
 function registraAluno(aluno: Aluno){ // CRIA
-    new AlunoDAO().registraAluno(aluno);
+    new AlunoRepositorio().registraAluno(aluno);
 }
 
 function editaInfoAluno(alunoEditado: Aluno, index: number){
-    new AlunoDAO().editaInfoAluno(alunoEditado,index);// UPDATE
+    new AlunoRepositorio().editaInfoAluno(alunoEditado,index);// UPDATE
 }
 
 function consultaAlunos() : Aluno[] { // READ
-    return new AlunoDAO().consultaAlunos();
+    return new AlunoRepositorio().consultaAlunos();
 }
 
 function consultaAlunoEspecifico(idx: number) : Aluno | null { // READ
-    return new AlunoDAO().consultaAlunoEspecifico(idx);
+    return new AlunoRepositorio().consultaAlunoEspecifico(idx);
 }
 
 function deletaAluno(idx: number) : void {  // DELETE
-    new AlunoDAO().deletaAluno(idx);
+    new AlunoRepositorio().deletaAluno(idx);
+}
+
+function filtraPorRM(rm: number) : Aluno {
+    return null;
 }
 
 export default { registraAluno, 
     editaInfoAluno, 
     consultaAlunos, 
     deletaAluno,
-    consultaAlunoEspecifico
+    consultaAlunoEspecifico,
+    filtraPorRM
 };
