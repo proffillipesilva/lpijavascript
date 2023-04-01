@@ -25,7 +25,7 @@ function filtraPorRM(rm: number) : Aluno | null {
     const alunos = new AlunoRepositorio().consultaAlunos();
     for (let index = 0; index < alunos.length; index++) {
         const aluno = alunos[index];
-        if(aluno .rm == rm){
+        if(aluno.rm == rm){
             return aluno
         }
     }
