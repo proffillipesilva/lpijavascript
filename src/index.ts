@@ -1,6 +1,7 @@
 
 import express, { Express, Request, Response } from "express";
 import alunoRouter from "./routes/aluno.router";
+import path from "path";
 
 const app: Express = express(); // instancio o server
 
@@ -12,7 +13,9 @@ app.get('/test', (req: Request, res: Response) => { // rota de teste
 
 // alunos --> /alunos
 
-app.use('/alunos', alunoRouter);
+app.use('/app/v1/alunos', alunoRouter);
+
+app.use(express.static('public'));
 
 app.listen(38000, () => console.log("Inicializou servidor")); // escuto na porta 38000
 
